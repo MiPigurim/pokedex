@@ -100,7 +100,8 @@
             <input
               type="text"
               class="form-control"
-              placeholder="Pesquisar pokémon"
+              placeholder="Pesquisar Pokémon"
+              v-model="nomePokemon"
             />
           </div>
         </div>
@@ -145,8 +146,21 @@ export default {
     pokemon: {},
     pokemons: [],
     ordenacao: "",
+    nomePokemon: "",
   }),
   watch: {
+    nomePokemon(valorNovo) {
+      fetch(`http://localhost:3000/pokemons?nome_like=${valorNovo}`)
+        .then((Response) => {
+          return Response.json();
+        })
+        .then((data) => {
+          this.pokemons = data;
+        })
+        .catch((error) => {
+          console.log("erro ao buscar pokemons no server local", error);
+        });
+    },
     ordenacao(valorNovo) {
       if (valorNovo == 1) {
         //Ordenação por ID crescente
