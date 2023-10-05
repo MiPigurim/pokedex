@@ -113,3 +113,8 @@
 .lista-move {
   transition: all 1s;
 }
+
+/* transition-group para o filtro de ordenação */
+.ordenacao-move {
+  transition: all 2s;
+}
