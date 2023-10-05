@@ -89,3 +89,27 @@
   opacity: 0;
   transform: translateY(50px);}
 .transicao {transition: all 2s;}
+
+/* transition-group lista que terá um efeito de slide */
+.lista-enter-from {
+  opacity: 0;
+  transform: translateX(-150px);
+}
+.lista-enter-active {
+  transition: 1s;
+}
+.lista-enter-to, .lista-leave-from {
+  opacity: 1;
+  transform: translateX(0px);
+}
+.lista-leave-active {
+  transition: 1s;
+  position: absolute;
+}
+.lista-leave-to {
+  opacity: 0;
+  transform: translateX(150px);
+}
+.lista-move {
+  transition: all 1s;
+}
